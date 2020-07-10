@@ -1,0 +1,4 @@
+Scenario,DegreeType,AreaOfInterest,ProgramType,FirstName,LastName,Email,CountryCode,PhoneNumber
+WithUndergrad,"Undergraduate",Management,Management (BGM),embTest1,Test,dbanala@live.com,United States,9563337743
+WithGraduate,Graduate,Engineering,Computer Science (MCS),embTest2,Test,dbanala@live.com,United States,9563337743
+WithCertificates,Certificates,Health and Wellness,Biomimicry (Graduate Certificate),embTest3,Test,dbanala@live.com,United States,9563337743
