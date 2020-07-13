@@ -6,6 +6,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
 public class Utilities {
 
     static WebDriver driver=null;
@@ -15,6 +17,9 @@ public class Utilities {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriverNew.exe");
         driver=new ChromeDriver();
         driver.get(url);
+        driver.manage().window().maximize();
+        //implicit wait
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
 
     public static void  initializeIE(){
@@ -37,6 +42,12 @@ public class Utilities {
             WebElement element = driver.findElement(xpath);
             element.click();
         }
+    }
+
+    public static void clickElementByJS(By xpath){
+        WebElement ele = driver.findElement(xpath);
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();", ele);
     }
 
     public static void sendText(By xpath,String key){
@@ -69,16 +80,7 @@ public class Utilities {
         Select degreeDropDown = new Select(driver.findElement(xpath));
         degreeDropDown.selectByVisibleText(text);
     }
-    public static boolean clickOnContinue() {
 
-        if (driver.findElements(By.xpath("//*[contains(@class,'btn font-weight-bold py-space-xxs px-space-md btn-secondary')]")).size() == 1) {
-            elementIsEnabled = true;
-        }
-        else if (driver.findElements(By.xpath("//*[contains(@class,'btn font-weight-bold py-space-xxs px-space-md btn-secondary disabled')]")).size() == 0) {
-            elementIsEnabled = false;
-        }
-        return elementIsEnabled;
-    }
 
 public static boolean waitCondition(String xpath){
 

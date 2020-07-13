@@ -11,7 +11,7 @@ public class ProgramCategory extends Utilities {
     private static By selectByDegree = By.xpath("//*[@id=\"degree-type\"]");
     private static By selectByInterestArea = By.xpath("//*[@id=\"interest-area\"]");
     private static By selectByProgram = By.xpath("//*[@id=\"program\"]");
-    private static By continueButton = By.xpath("//*[@id=\"asuo-rfi\"]/div/div[2]/div/div/button");
+    private static By continueButton = By.xpath("//*[contains(text(),'Continue')]");
 
 
     public static void clickOnRequestInfo() {
@@ -26,8 +26,6 @@ public class ProgramCategory extends Utilities {
 
     public static void selectProgramType(String text) { Utilities.selectByVisisbleText(selectByProgram, text); }
 
-    public static void clickOnContinu() { Utilities.clickOnContinue(); }
-
-
+    public static void clickOnContinuByJS() { Utilities.clickElementByJS(continueButton); }
 }
 
